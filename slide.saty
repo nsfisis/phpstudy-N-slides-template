@@ -5,6 +5,22 @@
 @require: code-printer/code-theme
 @require: figbox/figbox
 
+let ex-big-textbox ?:size-opt it =
+  let size = Option.from 48pt size-opt in
+    FigBox.textbox?:(set-font-size size) it
+
+let big-textbox ?:size-opt it =
+  let size = Option.from 32pt size-opt in
+    FigBox.textbox?:(set-font-size size) it
+
+let mid-textbox ?:size-opt it =
+  let size = Option.from 24pt size-opt in
+    FigBox.textbox?:(set-font-size size) it
+
+let with-frame figbox = figbox
+  |> FigBox.hvmargin 16pt
+  |> FigBox.frame 2pt Color.black
+
 let-block +code-block-php source =
   '<
     +code-printer?:(
@@ -34,14 +50,17 @@ document '<
 
   +frame{自己紹介}<
     +fig-center(vconcat [
-      gap 75pt;
-      hconcat [
-        textbox{nsfisis (いまむら)};
-        gap 20pt;
-        include-image 50pt `assets/me.jpeg`;
-      ];
-      gap 20pt;
-      textbox{\@ デジタルサーカス株式会社};
+      gap 30pt;
+      big-textbox{いまむら};
+    ]);
+    +fig-center(vconcat [
+      ex-big-textbox{nsfisis};
+    ]);
+    +fig-center(vconcat [
+      include-image 128pt `assets/me.jpeg`;
+    ]);
+    +fig-center(vconcat [
+      big-textbox{\@ デジタルサーカス株式会社};
     ]);
   >
 
