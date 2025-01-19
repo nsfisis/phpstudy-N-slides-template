@@ -5,9 +5,9 @@ all: build
 
 # Build slide PDF.
 .PHONY: build
-build: slide.pdf
+build: slides.pdf
 
-slide.pdf: slide.saty
+slides.pdf: slides.saty
 	$(SATYSFI_BIN) $^
 
 # Enter Docker shell.
