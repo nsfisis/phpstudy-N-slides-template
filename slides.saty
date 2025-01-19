@@ -1,4 +1,4 @@
-@require: class-slydifi/theme/akasaka
+@import: ./slydifi/my-theme
 @require: code-printer/code-design
 @require: code-printer/code-printer
 @require: code-printer/code-syntax
