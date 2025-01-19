@@ -57,7 +57,7 @@ document '<
       ex-big-textbox{nsfisis};
     ]);
     +fig-center(vconcat [
-      include-image 128pt `assets/me.jpeg`;
+      include-image 128pt `assets/me_1200x1200.png`;
     ]);
     +fig-center(vconcat [
       big-textbox{\@ デジタルサーカス株式会社};
