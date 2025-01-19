@@ -11,7 +11,7 @@ slide.pdf: slide.saty
 		--name satysfi \
 		--mount type=bind,src=$$(pwd),dst=/work \
 		satysfi \
-		satysfi slide.saty
+		sh -c "satysfi slide.saty && chown "$$(id -u):$$(id -g)" slide.pdf slide.satysfi-aux"
 
 # Enter Docker shell.
 .PHONY: shell
