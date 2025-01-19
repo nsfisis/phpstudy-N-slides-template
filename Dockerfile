@@ -9,6 +9,6 @@ RUN opam install satysfi-class-slydifi && \
     opam install satysfi-fonts-noto-sans-cjk-jp
 
 RUN eval $(opam env) && \
-    satyrographos install
+    satyrographos install --copy
 
 WORKDIR /work

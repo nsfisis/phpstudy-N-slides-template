@@ -1,3 +1,5 @@
+SATYSFI_BIN := satysfi
+
 .PHONY: all
 all: build
 
@@ -6,12 +8,7 @@ all: build
 build: slide.pdf
 
 slide.pdf: slide.saty
-	docker run \
-		--rm \
-		--name satysfi \
-		--mount type=bind,src=$$(pwd),dst=/work \
-		satysfi \
-		sh -c "satysfi slide.saty && chown "$$(id -u):$$(id -g)" slide.pdf slide.satysfi-aux"
+	$(SATYSFI_BIN) $^
 
 # Enter Docker shell.
 .PHONY: shell
@@ -20,7 +17,6 @@ shell:
 		-it \
 		--rm \
 		--name satysfi \
-		--mount type=bind,src=$$(pwd),dst=/work \
 		satysfi \
 		sh
 
@@ -28,6 +24,14 @@ shell:
 .PHONY: docker
 docker:
 	docker build --tag satysfi .
+
+# Install dependencies.
+.PHONY: deps
+deps:
+	rm -rf .satysfi
+	docker create --name satysfi-tmp satysfi
+	docker cp -L satysfi-tmp:/root/.satysfi .satysfi
+	docker rm satysfi-tmp
 
 # Clean all artifacts.
 .PHONY: clean
