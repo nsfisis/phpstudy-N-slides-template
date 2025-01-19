@@ -12,3 +12,7 @@ RUN eval $(opam env) && \
     satyrographos install --copy
 
 WORKDIR /work
+
+COPY patches/figbox.satyh.patch /root/.satysfi/dist/packages/figbox/figbox.satyh.patch
+RUN cd /root/.satysfi/dist/packages/figbox && \
+    patch -p0 < figbox.satyh.patch
