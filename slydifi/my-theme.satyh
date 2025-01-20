@@ -1,4 +1,4 @@
-%% akasaka.satyh
+%% my-theme.satyh
 %%
 %% SLyDIFi theme file.
 
@@ -10,7 +10,7 @@
 @require: class-slydifi/footnote
 @require: enumitem/enumitem
 
-type akasaka-config = (|
+type my-theme-config = (|
   font-normal : context -> context;
   font-bold : context -> context;
   font-code : context -> context;
@@ -38,34 +38,34 @@ type akasaka-config = (|
 |)
 
 
-module SlydifiThemeAkasaka: sig
+module SlydifiMyTheme: sig
 
   val layout: frame-layout
   val document: block-text -> document
 
 % config
-  val config: akasaka-config SlydifiParam.t
-  val default-config: akasaka-config
-  direct +set-config : [akasaka-config] block-cmd
-  direct \set-config : [akasaka-config] inline-cmd
-  direct +with-config : [akasaka-config; block-text] block-cmd
-  direct \with-config : [akasaka-config; inline-text] inline-cmd
+  val config: my-theme-config SlydifiParam.t
+  val default-config: my-theme-config
+  direct +set-config : [my-theme-config] block-cmd
+  direct \set-config : [my-theme-config] inline-cmd
+  direct +with-config : [my-theme-config; block-text] block-cmd
+  direct \with-config : [my-theme-config; inline-text] inline-cmd
 
 % frames
   %% スライドマスター。
-  val frame-master: akasaka-config -> unit Frame.frame
+  val frame-master: my-theme-config -> unit Frame.frame
   %% ページ番号の付いたスライドマスター。
-  val frame-master-with-footer: akasaka-config -> unit Frame.frame
+  val frame-master-with-footer: my-theme-config -> unit Frame.frame
   %% スライド全体のタイトルフレーム。
   %% title: スライドのタイトル
   %% title: スライドのタイトル
-  val frame-slide-title: akasaka-config ->
+  val frame-slide-title: my-theme-config ->
     ((| title: inline-text list; author: inline-text list; date: inline-text list|))
       Frame.frame
   %% セクションフレーム。
   % val frame-section-title: layout-slydifi-theme ((| title: inline-text list; |)) Frame.frame
   %% タイトルフレーム。
-  val frame-normal: akasaka-config -> ((| title: inline-text; inner: block-text |)) Frame.frame
+  val frame-normal: my-theme-config -> ((| title: inline-text; inner: block-text |)) Frame.frame
 
 % frame commands
   %% frame-slide-title に従ってタイトルスライドを生成する。
@@ -76,7 +76,6 @@ module SlydifiThemeAkasaka: sig
 
 % inline commands
   direct \emph : [(int -> bool)?; inline-text] inline-cmd
-  direct \textbf : [(int -> bool)?; inline-text] inline-cmd
   direct \link : [inline-text?; string] inline-cmd
   direct \code : [string] inline-cmd
 
@@ -375,14 +374,6 @@ end = struct
     in
     read-inline ctx2 it
 
-  let-inline ctx \textbf ?:dcf it =
-    let config = SlydifiParam.get config in
-    let dcf = Option.from (fun _ -> true) dcf in
-    let ctx2 =
-      SlydifiOverlay.select-from-two dcf (config#font-bold ctx) ctx
-    in
-    read-inline ctx2 it
-
   let-inline ctx \link ?:text url =
     let config = SlydifiParam.get config in
     match text with
@@ -448,5 +439,4 @@ end = struct
 
 end
 
-let document = SlydifiThemeAkasaka.document
-
+let document = SlydifiMyTheme.document

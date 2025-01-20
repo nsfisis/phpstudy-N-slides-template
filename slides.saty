@@ -34,7 +34,7 @@ in
 
 document '<
   +set-config(|
-    SlydifiThemeAkasaka.default-config with
+    SlydifiMyTheme.default-config with
     color-emph = Color.black;
   |);
 
@@ -70,8 +70,6 @@ document '<
     +frame{フレームタイトル}<
       +p{
         \emph{強調されたテキスト}
-
-        \textbf{太字のテキスト}
 
         \link?:({リンク})(`https://example.com`);
 

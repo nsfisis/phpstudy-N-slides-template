@@ -1,4 +1,5 @@
-SATYSFI_BIN := satysfi
+# SATYSFI_BIN := satysfi
+SATYSFI_BIN := ../fork/SATySFi/result/bin/satysfi
 
 .PHONY: all
 all: build
