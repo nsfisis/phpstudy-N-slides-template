@@ -8,8 +8,8 @@ all: build
 .PHONY: build
 build: slides.pdf
 
-slides.pdf: slides.saty
-	$(SATYSFI_BIN) $^
+slides.pdf: slides.saty slydifi/my-theme.satyh
+	$(SATYSFI_BIN) slides.saty
 
 # Enter Docker shell.
 .PHONY: shell

@@ -138,14 +138,14 @@ end = struct
       font-pagenum = SlydifiScheme.apply-font-cfg [default-font; set-font-metrics 12pt;];
       font-footnote = SlydifiScheme.apply-font-cfg [default-font; set-font-metrics 12pt;];
 
-      color-bg = Color.of-css `#EEEEEE`;
-      color-fg = Color.of-css `#222222`;
-      color-emph = Color.of-css `#ff0027`;
+      color-bg = Color.of-css `#ffffff`;
+      color-fg = Color.of-css `#000000`;
+      color-emph = Color.of-css `#000000`;
       color-link = Color.of-css `#2d539e`;
-      color-title = Color.of-css `#555555`;
-      color-separator = Color.of-css `#555555`;
-      color-section-ribbon = Color.of-css `#aaaaaa`;
-      color-section-ribbon-intersect = Color.of-css `#666666`;
+      color-title = Color.of-css `#000000`;
+      color-separator = Color.of-css `#000000`;
+      color-section-ribbon = Color.of-css `#000000`;
+      color-section-ribbon-intersect = Color.of-css `#000000`;
 
       length-frame-title-height = 36pt;
       length-frame-title-left-margin = 10pt;
