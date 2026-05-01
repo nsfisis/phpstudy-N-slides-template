@@ -1,6 +1,6 @@
-#import "@preview/touying:0.6.1": *
+#import "@preview/touying:0.7.3": *
 #import "@preview/codly:1.3.0": *
-#import "@preview/cjk-unbreak:0.2.0": remove-cjk-break-space, transform-childs
+#import "@preview/cjk-unbreak:0.2.3": remove-cjk-break-space, transform-childs
 #import "setoka.typ": *
 
 #show: codly-init.with()
@@ -60,7 +60,7 @@
     ],
     subtitle: [PHP 勉強会\@東京 第 TODO 回],
     author: [nsfisis (いまむら)],
-    date: datetime(year: TODO, month: TODO, day: TODO),
+    date: datetime(year: 3000, month: 1, day: 1),
   ),
   config-common(preamble: {
     codly(
