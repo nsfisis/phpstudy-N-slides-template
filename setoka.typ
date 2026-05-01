@@ -1,4 +1,7 @@
-#import "@preview/touying:0.6.1": *
+#import "@preview/touying:0.6.3": *
+#import "@preview/fletcher:0.5.8" as fletcher
+
+#let fletcher-diagram = touying-reducer.with(reduce: fletcher.diagram, cover: fletcher.hide)
 
 #let slide(..args) = touying-slide-wrapper(self => {
   let header(self) = {
@@ -30,6 +33,8 @@
     config-page(
       header: header,
       footer: footer,
+      header-ascent: 0em,
+      footer-descent: 0em,
     ),
   )
   touying-slide(self: self, ..args)
@@ -116,7 +121,7 @@
   show: touying-slides.with(
     config-page(
       paper: "presentation-" + aspect-ratio,
-      margin: 2em,
+      margin: (x: 2em, y: 1.125em),
     ),
     config-common(
       slide-fn: slide,
